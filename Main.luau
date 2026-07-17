@@ -931,6 +931,7 @@ end
 	MAINCUI.Main:WaitForChild("ScriptTitle").Text = tostring(Settings.Name)
 	
 	function Window:CreateTab(Settings)
+		print("Called Tab")
 		local Tab = {}
 
 		Tab.Name = Settings.Name
