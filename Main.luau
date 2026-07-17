@@ -905,12 +905,15 @@ end
 	local function SCRIPT_27()
 		local script = UnSkyUIGUI["27"]
 		local RS = game:GetService("RunService")
+		
+		print(MAINCUI)
+		print(MAINCUI.Name)
+		print(MAINCUI.ClassName)
+		print(MAINCUI:GetFullName())
 
 
-
-		RS.Heartbeat:Connect(function()
-			MAINCUI.Main.ScriptTitle.AutomaticSize = Enum.AutomaticSize.X
-		end)
+		
+			MAINCUI:WaitForChild("Main").ScriptTitle.AutomaticSize = Enum.AutomaticSize.X
 	end
 	task.spawn(SCRIPT_27)
 
