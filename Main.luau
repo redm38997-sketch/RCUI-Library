@@ -6,7 +6,7 @@ function Library:CreateWindow(Settings)
 
 	Window.Name = Settings.Name or "Window"
 
-	-- ? ? UnSkyGUI2LUA ? ?
+	-- ₰ ◀ UnSkyGUI2LUA ▶ ₰
 if player.PlayerGui:FindFirstChild("MainCUI") then
 	player.PlayerGui:FindFirstChild("MainCUI"):Destroy()
 end
@@ -479,7 +479,7 @@ end
 	local function SCRIPT_b()
 		local script = UnSkyUIGUI["b"]
 		local player = game.Players.LocalPlayer
-		local MainGui = script.Parent.Parent.Parent
+		local MainGui = game.Players.LocalPlayer.PlayerGui.MainCUI
 		local MainFrame = MainGui.Main
 		local Env
 
@@ -579,7 +579,7 @@ end
 
 
 
-				-- ? ? UnSkyGUI2LUA ? ?
+				-- ₰ ◀ UnSkyGUI2LUA ▶ ₰
 
 				local UnSkyUIGUI = {}
 
@@ -642,7 +642,7 @@ end
 			local TweenTime = 0.35 -- Slide speed
 			local sound = Instance.new("Sound")
 			sound.SoundId = "rbxassetid://103752619745201"
-			sound.Parent = script.Parent.Parent
+			sound.Parent = Gui
 			local OnScreen = UDim2.new(0.016, 0, 0.706, 0)
 			local OffScreen = UDim2.new(-1, 0, 0.706, 0)
 			Gui.Title.Text = "Reminder"
@@ -901,6 +901,7 @@ end
 		end)
 	end
 	task.spawn(SCRIPT_d)
+	local MAINCUI = player.PlayerGui:FindFirstChild("MainCUI")
 	local function SCRIPT_27()
 		local script = UnSkyUIGUI["27"]
 		local RS = game:GetService("RunService")
@@ -908,12 +909,12 @@ end
 
 
 		RS.Heartbeat:Connect(function()
-			script.Parent.AutomaticSize = Enum.AutomaticSize.X
+			MAINCUI.Main.ScriptTitle.AutomaticSize = Enum.AutomaticSize.X
 		end)
 	end
 	task.spawn(SCRIPT_27)
 
-	local MAINCUI = player.PlayerGui:FindFirstChild("MainCUI")
+
 	
 	MAINCUI:WaitForChild("ScriptTitle"). Text = tostring(Settings.Name)
 	
