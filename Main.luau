@@ -1,11 +1,15 @@
 local Library = {}
 local player = game:GetService("Players").LocalPlayer
+local MAINCUI = player.PlayerGui:FindFirstChild("MainCUI")
 -- Creates the main UI
 function Library:CreateWindow(Settings)
 	local Window = {}
 
 	Window.Name = Settings.Name or "Window"
+	local mainframe = MAINCUI:WaitForChild("Main")
 
+	Window.TabTemplate = mainframe.TabHolder.PTabContainer
+	Window.TabTemplate.Parent = nil
 	-- ₰ ◀ UnSkyGUI2LUA ▶ ₰
 if player.PlayerGui:FindFirstChild("MainCUI") then
 	player.PlayerGui:FindFirstChild("MainCUI"):Destroy()
@@ -658,7 +662,8 @@ end
 			Gui.Title.TextWrapped = false
 			Gui.Visible = true
 			Gui.Position = OffScreen
-
+			
+		
 			local function ShowNotification()
 				-- Reset position in case it was already used
 				Gui.Position = OffScreen
@@ -924,18 +929,32 @@ end
 
 
 	
-	MAINCUI.Main:WaitForChild("ScriptTitle"). Text = tostring(Settings.Name)
+	MAINCUI.Main:WaitForChild("ScriptTitle").Text = tostring(Settings.Name)
 	
-	function Window:CreateTab(Name)
+	function Window:CreateTab(Settings)
 		local Tab = {}
 
-		Tab.Name = Name
+		Tab.Name = Settings.Name
+local TabCount = 0
+		TabCount += 1
 
-		-- Your tab UI creation goes here
+		local Tabf = self.TabTemplate:Clone()
 
+		Tabf.Name = TabCount .. "Tab"
+		Tabf.Parent = mainframe.TabHolder
+
+		Tab.Instance = Tabf
+
+		local actualtab = Tabf:WaitForChild("PlaceHolderTab")
+		actualtab.Name = Settings.Name
+		actualtab:WaitForChild("Title").Text = Settings.Name
+		actualtab:WaitForChild("Image").Image = "rbxassetid://" .. tostring(Settings.Image)
+		local clickable = actualtab:WaitForChild("Clickable")
+		clickable.Name = Settings.Name .. "Clickable"
+		clickable.Active = true
+		
 		function Tab:CreateButton(Settings)
-			-- Create button UI here
-			-- Connect Settings.Callback here
+			
 		end
 
 		function Tab:CreateToggle(Settings)
