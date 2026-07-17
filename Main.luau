@@ -5,7 +5,7 @@ function Library:CreateWindow(Settings)
 	local Window = {}
 
 	Window.Name = Settings.Name or "Window"
-	print("NEW SCRIPT 2")
+	print("NEW SCRIPT 3")
 	-- ₰ ◀ UnSkyGUI2LUA ▶ ₰
 if player.PlayerGui:FindFirstChild("MainCUI") then
 	player.PlayerGui:FindFirstChild("MainCUI"):Destroy()
@@ -943,13 +943,14 @@ local TabCount = 0
 
 		Tabf.Name = TabCount .. "Tab"
 		Tabf.Parent = mainframe.TabHolder
-
+		Tabf.Visible = true
 		Tab.Instance = Tabf
 
 		local actualtab = Tabf:WaitForChild("PlaceHolderTab")
 		actualtab.Name = Settings.Name
 		actualtab:WaitForChild("Title").Text = Settings.Name
 		actualtab:WaitForChild("Image").Image = "rbxassetid://" .. tostring(Settings.Image)
+		actualtab.Visible = true
 		local clickable = actualtab:WaitForChild("Clickable")
 		clickable.Name = Settings.Name .. "Clickable"
 		clickable.Active = true
