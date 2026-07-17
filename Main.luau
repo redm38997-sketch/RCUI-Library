@@ -297,7 +297,11 @@ end
 
 	UnSkyUIGUI["29"] = Instance.new("UICorner", UnSkyUIGUI["28"])
 	UnSkyUIGUI["29"]["CornerRadius"] = UDim.new(0, 24)
-
+	UnSkyUIGUI["29"]["TopLeftRadius"] = UDim.new(0, 24)
+	UnSkyUIGUI["29"]["TopRightRadius"] = UDim.new(0, 24)
+	UnSkyUIGUI["29"]["BottomLeftRadius"] = UDim.new(0, 0)
+	UnSkyUIGUI["29"]["BottomRightRadius"] = UDim.new(0, 0)
+	
 	UnSkyUIGUI["2a"] = Instance.new("ScrollingFrame", UnSkyUIGUI["2"])
 	UnSkyUIGUI["2a"]["BorderSizePixel"] = 0
 	UnSkyUIGUI["2a"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
