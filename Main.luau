@@ -651,7 +651,7 @@ end
 			local OnScreen = UDim2.new(0.016, 0, 0.706, 0)
 			local OffScreen = UDim2.new(-1, 0, 0.706, 0)
 			Gui.Title.Text = "Reminder"
-			Gui.Content.Text = "Use Left Shift To Open The GUI"
+			Gui.Content.Text = "Use Left Control To Open The GUI"
 			Gui.Content.AutomaticSize = Enum.AutomaticSize.Y
 			Gui.Content.TextWrapped = true
 			Gui.Title.AutomaticSize = Enum.AutomaticSize.X
@@ -697,9 +697,9 @@ end
 		UserInputService.InputBegan:Connect(function(input, gameProcessed)
 			if gameProcessed then return end -- ignores typing in chat, UI, etc.
 
-			if input.KeyCode == Enum.KeyCode.LeftShift and MainFrame.Visible == false then
+			if input.KeyCode == Enum.KeyCode.LeftControl and MainFrame.Visible == false then
 				SlideOn(MainFrame, UDim2.new(0.5, 0, 0.5, 0))
-			elseif input.KeyCode == Enum.KeyCode.LeftShift and MainFrame.Visible == true then
+			elseif input.KeyCode == Enum.KeyCode.LeftControl and MainFrame.Visible == true then
 				SlideOff(MainFrame)
 			end
 		end)
