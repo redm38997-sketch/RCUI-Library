@@ -5,7 +5,7 @@ function Library:CreateWindow(Settings)
 	local Window = {}
 
 	Window.Name = Settings.Name or "Window"
-	print("NEW SCRIPT")
+	print("NEW SCRIPT 2")
 	-- ₰ ◀ UnSkyGUI2LUA ▶ ₰
 if player.PlayerGui:FindFirstChild("MainCUI") then
 	player.PlayerGui:FindFirstChild("MainCUI"):Destroy()
@@ -823,6 +823,7 @@ end
 		)
 
 		local User = script.Parent.Parent.User
+		print("Printed After User")
 		local MiniUser = script.Parent.Parent.MiniUser
 
 		local UserAvatar = User.Avatar
