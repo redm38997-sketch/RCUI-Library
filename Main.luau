@@ -1,15 +1,10 @@
 local Library = {}
 local player = game:GetService("Players").LocalPlayer
-local MAINCUI = player.PlayerGui:FindFirstChild("MainCUI")
 -- Creates the main UI
 function Library:CreateWindow(Settings)
 	local Window = {}
 
 	Window.Name = Settings.Name or "Window"
-	local mainframe = MAINCUI:WaitForChild("Main")
-
-	Window.TabTemplate = mainframe.TabHolder.PTabContainer
-	Window.TabTemplate.Parent = nil
 	-- ₰ ◀ UnSkyGUI2LUA ▶ ₰
 if player.PlayerGui:FindFirstChild("MainCUI") then
 	player.PlayerGui:FindFirstChild("MainCUI"):Destroy()
@@ -927,7 +922,10 @@ end
 	end
 	task.spawn(SCRIPT_27)
 
+	local mainframe = MAINCUI:WaitForChild("Main")
 
+	Window.TabTemplate = mainframe.TabHolder.PTabContainer
+	Window.TabTemplate.Parent = nil
 	
 	MAINCUI.Main:WaitForChild("ScriptTitle").Text = tostring(Settings.Name)
 	
