@@ -15,7 +15,8 @@ end
 	UnSkyUIGUI["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"))
 	UnSkyUIGUI["1"]["Name"] = [[MainCUI]]
 	UnSkyUIGUI["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling
-
+	UnSkyUIGUI["1"]["ResetOnSpawn"] = false
+	
 	UnSkyUIGUI["2"] = Instance.new("Frame", UnSkyUIGUI["1"])
 	UnSkyUIGUI["2"]["BorderSizePixel"] = 0
 	UnSkyUIGUI["2"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
