@@ -5,7 +5,7 @@ function Library:CreateWindow(Settings)
 	local Window = {}
 
 	Window.Name = Settings.Name or "Window"
-	print("v2.1 window")
+	print("v3.1 window")
 	-- ₰ ◀ UnSkyGUI2LUA ▶ ₰
 if player.PlayerGui:FindFirstChild("MainCUI") then
 	player.PlayerGui:FindFirstChild("MainCUI"):Destroy()
@@ -388,7 +388,44 @@ end
 	UnSkyUIGUI["36"]["BackgroundTransparency"] = 1
 	UnSkyUIGUI["36"]["Name"] = [[Display]]
 	UnSkyUIGUI["36"]["Position"] = UDim2.new(0.80538, 0, 0.09091, 0)
+	
+	UnSkyUIGUI["37"] = Instance.new("Frame", UnSkyUIGUI["2b"])
+	UnSkyUIGUI["37"]["Visible"] = false
+	UnSkyUIGUI["37"]["BorderSizePixel"] = 0
+	UnSkyUIGUI["37"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0)
+	UnSkyUIGUI["37"]["Size"] = UDim2.new(0, 481, 0, 54)
+	UnSkyUIGUI["37"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+	UnSkyUIGUI["37"]["Name"] = [[PlaceHolderT]]
+	UnSkyUIGUI["37"]["BackgroundTransparency"] = 1
 
+	UnSkyUIGUI["38"] = Instance.new("UICorner", UnSkyUIGUI["37"])
+	UnSkyUIGUI["38"]["CornerRadius"] = UDim.new(0, 12)
+
+	UnSkyUIGUI["39"] = Instance.new("Frame", UnSkyUIGUI["37"])
+	UnSkyUIGUI["39"]["BorderSizePixel"] = 0
+	UnSkyUIGUI["39"]["BackgroundColor3"] = Color3.fromRGB(62, 62, 62)
+	UnSkyUIGUI["39"]["Size"] = UDim2.new(0, 483, 0, 55)
+	UnSkyUIGUI["39"]["Position"] = UDim2.new(-0.00425, 0, -0, 0)
+	UnSkyUIGUI["39"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+	UnSkyUIGUI["39"]["Name"] = [[PlaceHolderToggle]]
+
+	UnSkyUIGUI["3a"] = Instance.new("TextLabel", UnSkyUIGUI["39"])
+	UnSkyUIGUI["3a"]["TextWrapped"] = true
+	UnSkyUIGUI["3a"]["BorderSizePixel"] = 0
+	UnSkyUIGUI["3a"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+	UnSkyUIGUI["3a"]["TextSize"] = 40
+	UnSkyUIGUI["3a"]["FontFace"] = Font.new([[rbxasset://fonts/families/FredokaOne.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+	UnSkyUIGUI["3a"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+	UnSkyUIGUI["3a"]["BackgroundTransparency"] = 1
+	UnSkyUIGUI["3a"]["Size"] = UDim2.new(0, 220, 0, 50)
+	UnSkyUIGUI["3a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+	UnSkyUIGUI["3a"]["Text"] = [[AUTOFARM]]
+	UnSkyUIGUI["3a"]["Name"] = [[Title]]
+	UnSkyUIGUI["3a"]["Position"] = UDim2.new(-0.00128, 0, 0.03955, 0)
+
+	UnSkyUIGUI["3b"] = Instance.new("LocalScript", UnSkyUIGUI["3a"])
+
+	
 	local G2L_REQUIRE = require;
 	local G2L_MODULES = {};
 	local function require(Module:ModuleScript)
@@ -662,7 +699,8 @@ end
 				UnSkyUIGUI["1"]["Name"] = [[Notify]]
 				UnSkyUIGUI["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling
 				UnSkyUIGUI["1"]:SetAttribute([[_UIAID]], [[22bdf15693e4]])
-
+				UnSkyUIGUI["1"]["ResetOnSpawn"] = false
+				
 				UnSkyUIGUI["2"] = Instance.new("Frame", UnSkyUIGUI["1"])
 				UnSkyUIGUI["2"]["BorderSizePixel"] = 0
 				UnSkyUIGUI["2"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0)
@@ -1012,6 +1050,14 @@ end
 		script.Parent.AutomaticSize = Enum.AutomaticSize.X
 	end
 	task.spawn(SCRIPT_32)
+	
+	local function SCRIPT_3b()
+		local script = UnSkyUIGUI["3b"]
+		script.Parent.AutomaticSize = Enum.AutomaticSize.X
+	end
+	task.spawn(SCRIPT_3b)
+	
+	
 	local MAINCUI = player.PlayerGui:FindFirstChild("MainCUI")	
 
 	local mainframe = MAINCUI:WaitForChild("Main")
@@ -1114,9 +1160,51 @@ end
 		end
 		
 		function Tab:CreateToggle(Settings)
-			-- Create toggle UI here
-			-- Store true/false state
-			-- Connect callback
+			local TabID = self.ID
+			local TabContent = self.MainFrame:FindFirstChild(TabID .. "TabContent")
+
+			local Template = self.MainFrame.PlaceHolderContent.PlaceHolderT
+			Template.Visible = false
+			Template.Active = false
+
+			local Toggle = Template:Clone()
+			Toggle.Name = Settings.Name
+			Toggle.Parent = TabContent
+			Toggle.Visible = true
+
+			local ToggleGui = Toggle:WaitForChild("PlaceHolderToggle")
+			ToggleGui.Visible = true
+			ToggleGui.Active = true
+			ToggleGui.Clickable.Active = true
+			ToggleGui.Title.Text = Settings.Name
+
+			local On = ToggleGui.On
+			local Off = ToggleGui.Off
+
+			-- Initial state
+			local Enabled = Settings.Default or false
+
+			local function UpdateToggle()
+				On.Visible = Enabled
+				Off.Visible = not Enabled
+
+				if typeof(Settings.Callback) == "function" then
+					Settings.Callback(Enabled)
+				end
+			end
+
+			-- Set initial appearance
+			UpdateToggle()
+
+			ToggleGui.Clickable.Activated:Connect(function()
+				Enabled = not Enabled
+				UpdateToggle()
+			end)
+
+			local Placeholder = TabContent:FindFirstChild("PlaceHolderT")
+			if Placeholder then
+				Placeholder:Destroy()
+			end
 		end
 
 		return Tab
@@ -1138,7 +1226,8 @@ function Library:Notify(Settings)
 	UnSkyUIGUI["1"]["Name"] = [[Notify]]
 	UnSkyUIGUI["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling
 	UnSkyUIGUI["1"]:SetAttribute([[_UIAID]], [[22bdf15693e4]])
-
+	UnSkyUIGUI["1"]["ResetOnSpawn"] = false
+	
 	UnSkyUIGUI["2"] = Instance.new("Frame", UnSkyUIGUI["1"])
 	UnSkyUIGUI["2"]["BorderSizePixel"] = 0
 	UnSkyUIGUI["2"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0)
