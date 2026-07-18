@@ -5,7 +5,7 @@ function Library:CreateWindow(Settings)
 	local Window = {}
 
 	Window.Name = Settings.Name or "Window"
-	print("v3.2.3 TEST window")
+	print("v3.2.4 TEST window")
 	-- ₰ ◀ UnSkyGUI2LUA ▶ ₰
 if player.PlayerGui:FindFirstChild("MainCUI") then
 	player.PlayerGui:FindFirstChild("MainCUI"):Destroy()
@@ -1361,7 +1361,6 @@ end
 			local ButtonGui = Button:WaitForChild("PlaceHolderInput")
 			ButtonGui.Visible = true
 			ButtonGui.Active = true
-			ButtonGui.Clickable.Active = true
 			ButtonGui.Title.Text = Settings.Name
 			
 			local Input = ButtonGui:WaitForChild("PlaceHolderInput") :: TextBox
