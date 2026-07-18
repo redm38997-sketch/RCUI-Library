@@ -5,7 +5,7 @@ function Library:CreateWindow(Settings)
 	local Window = {}
 
 	Window.Name = Settings.Name or "Window"
-	print("v3.2.1 TEST window")
+	print("v3.2.2 TEST window")
 	-- ₰ ◀ UnSkyGUI2LUA ▶ ₰
 if player.PlayerGui:FindFirstChild("MainCUI") then
 	player.PlayerGui:FindFirstChild("MainCUI"):Destroy()
@@ -1333,7 +1333,49 @@ end
 		end
 		
 		function Tab:CreateInput(Settings)
-			local Name = script.Name
+			local TabID = self.ID
+
+			local TabGui = self.MainFrame.TabHolder:FindFirstChild(TabID .. "Tab")
+			local TabContent = self.MainFrame:FindFirstChild(TabID .. "TabContent")
+
+			-- Hide template
+			local Template = self.MainFrame.PlaceHolderContent.PlaceHolderIN
+			Template.Visible = false
+			Template.Active = false
+
+
+			local TemplateButton = Template:WaitForChild("PlaceHolderInput")
+			TemplateButton.Visible = false
+			TemplateButton.Active = false
+
+			-- Clone template
+			local Button = Template:Clone()
+			Button.Name = Settings.Name
+			Button.Parent = TabContent
+			Button.Visible = true
+
+			local ButtonGui = Button:WaitForChild("PlaceHolderInput")
+			ButtonGui.Visible = true
+			ButtonGui.Active = true
+			ButtonGui.Clickable.Active = true
+			ButtonGui.Title.Text = Settings.Name
+			
+			local Input = ButtonGui:WaitForChild("PlaceHolderInput") :: TextBox
+			Input.Active = true
+			Input.PlaceholderText = Settings.PlaceHolderText or "Type Here"
+			
+			if typeof(Settings.Callback) == "function" then
+				Input.FocusLost:Connect(function()
+					Settings.Callback(Input.Text)
+				end)
+			end
+			
+			local Placeholder = TabContent:FindFirstChild("PlaceHolderIN")
+
+			if Placeholder then
+				Placeholder:Destroy()
+			end
+
 			
 			
 		end
