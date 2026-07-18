@@ -5,7 +5,7 @@ function Library:CreateWindow(Settings)
 	local Window = {}
 
 	Window.Name = Settings.Name or "Window"
-	print("v3.2.2 TEST window")
+	print("v3.2.3 TEST window")
 	-- ₰ ◀ UnSkyGUI2LUA ▶ ₰
 if player.PlayerGui:FindFirstChild("MainCUI") then
 	player.PlayerGui:FindFirstChild("MainCUI"):Destroy()
@@ -1347,6 +1347,10 @@ end
 			local TemplateButton = Template:WaitForChild("PlaceHolderInput")
 			TemplateButton.Visible = false
 			TemplateButton.Active = false
+			
+			local TemplateInput = Template:WaitForChild("PlaceHolderInput")
+			TemplateInput.Visible = false
+			TemplateInput.Active = false
 
 			-- Clone template
 			local Button = Template:Clone()
