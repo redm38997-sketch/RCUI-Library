@@ -201,7 +201,9 @@ end
 	UnSkyUIGUI["1b"]["Position"] = UDim2.new(-0.00152, 0, 0.18407, 0)
 	UnSkyUIGUI["1b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
 	UnSkyUIGUI["1b"]["BackgroundTransparency"] = 1
-
+	UnSkyUIGUI["1b"]["ScrollBarThickness"] = 0
+	UnSkyUIGUI["1b"]["ClipsDescendants"] = true
+	
 	UnSkyUIGUI["1c"] = Instance.new("UICorner", UnSkyUIGUI["1b"])
 	UnSkyUIGUI["1c"]["CornerRadius"] = UDim.new(0, 0)
 
@@ -311,7 +313,9 @@ end
 	UnSkyUIGUI["2a"]["Position"] = UDim2.new(0.27011, 0, 0.15659, 0)
 	UnSkyUIGUI["2a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
 	UnSkyUIGUI["2a"]["BackgroundTransparency"] = 1
-
+	UnSkyUIGUI["2a"]["ScrollBarThickness"] = 0
+	UnSkyUIGUI["2a"]["ClipsDescendants"] = true
+	
 	UnSkyUIGUI["2b"] = Instance.new("UICorner", UnSkyUIGUI["2a"])
 	UnSkyUIGUI["2b"]["CornerRadius"] = UDim.new(0, 0)
 
@@ -930,14 +934,16 @@ end
 	Window.TabTemplate.Parent = nil
 	
 	MAINCUI.Main:WaitForChild("ScriptTitle").Text = tostring(Settings.Name)
+	local TabCount = 0
 	
 	function Window:CreateTab(Settings)
 		print("Called Tab")
+
 		local Tab = {}
 
-		Tab.Name = Settings.Name
-local TabCount = 0
 		TabCount += 1
+		Tab.ID = TabCount
+		Tab.Name = Settings.Name
 
 		local Tabf = self.TabTemplate:Clone()
 
@@ -948,12 +954,36 @@ local TabCount = 0
 
 		local actualtab = Tabf:WaitForChild("PlaceHolderTab")
 		actualtab.Name = Settings.Name
-		actualtab:WaitForChild("Title").Text = Settings.Name
-		actualtab:WaitForChild("Image").Image = "rbxassetid://" .. tostring(Settings.Image)
+		actualtab.Title.Text = Settings.Name
+		actualtab.Image.Image = "rbxassetid://" .. tostring(Settings.Image)
 		actualtab.Visible = true
+
 		local clickable = actualtab:WaitForChild("Clickable")
 		clickable.Name = Settings.Name .. "Clickable"
 		clickable.Active = true
+
+		-- Create tab content
+		local ContentTemplate = mainframe.PlaceHolderContent
+		local Content = ContentTemplate:Clone()
+
+		Content.Name = TabCount .. "TabContent"
+		Content.Parent = ContentTemplate.Parent
+		Content.Visible = true
+
+		Tab.Content = Content
+
+		-- Hide other contents and show this one
+		local function SelectTab()
+			for _, v in ipairs(Content.Parent:GetChildren()) do
+				if v:IsA("ScrollingFrame") and v.Name:match("TabContent") then
+					v.Visible = false
+				end
+			end
+
+			Content.Visible = true
+		end
+
+		clickable.Activated:Connect(SelectTab)
 		
 		function Tab:CreateButton(Settings)
 			
