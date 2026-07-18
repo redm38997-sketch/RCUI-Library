@@ -1125,7 +1125,7 @@ end
 	return Window
 end
 function Library:Notify(Settings)
-	print("1.1 NOTIFY")
+	print("1.2 NOTIFY")
 	local Title = Settings.Title
 	local Desc = Settings.Content
 	local image = tostring(Settings.Image)
@@ -1185,7 +1185,7 @@ function Library:Notify(Settings)
 	UnSkyUIGUI["6"] = Instance.new("ImageLabel", UnSkyUIGUI["2"])
 	UnSkyUIGUI["6"]["BorderSizePixel"] = 0
 	UnSkyUIGUI["6"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
-	UnSkyUIGUI["6"]["Image"] = [[rbxassetid://87947306809158]]
+	UnSkyUIGUI["6"]["Image"] = "rbxassetid://" .. image
 	UnSkyUIGUI["6"]["Size"] = UDim2.new(0, 16, 0, 16)
 	UnSkyUIGUI["6"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
 	UnSkyUIGUI["6"]["BackgroundTransparency"] = 1
