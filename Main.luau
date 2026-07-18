@@ -5,7 +5,7 @@ function Library:CreateWindow(Settings)
 	local Window = {}
 
 	Window.Name = Settings.Name or "Window"
-	print("v3.13 window")
+	print("v3.135 window")
 	-- ₰ ◀ UnSkyGUI2LUA ▶ ₰
 if player.PlayerGui:FindFirstChild("MainCUI") then
 	player.PlayerGui:FindFirstChild("MainCUI"):Destroy()
@@ -1184,8 +1184,8 @@ end
 			ToggleGui.Active = true
 			ToggleGui.Title.Text = Settings.Name
 
-			local On = ToggleGui.On
-			local Off = ToggleGui.Off
+			local On = ToggleGui:WaitForChild("On")
+			local Off = ToggleGui:WaitForChild("Off")
 			On.Active = true
 			Off.Active = true
 			-- Initial state
