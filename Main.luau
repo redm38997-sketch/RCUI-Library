@@ -5,7 +5,7 @@ function Library:CreateWindow(Settings)
 	local Window = {}
 
 	Window.Name = Settings.Name or "Window"
-	print("v3.2 TEST window")
+	print("v3.2.1 TEST window")
 	-- ₰ ◀ UnSkyGUI2LUA ▶ ₰
 if player.PlayerGui:FindFirstChild("MainCUI") then
 	player.PlayerGui:FindFirstChild("MainCUI"):Destroy()
@@ -263,7 +263,7 @@ end
 	UnSkyUIGUI["24"]["BackgroundColor3"] = Color3.fromRGB(62, 62, 62)
 	UnSkyUIGUI["24"]["Size"] = UDim2.new(0, 166, 0, 50)
 	UnSkyUIGUI["24"]["BackgroundTransparency"] = 1
-	UnSkyUIGUI["24"]["Name"] = [[Gui > Lua #1]]
+	UnSkyUIGUI["24"]["Name"] = [[Clickable]]
 	UnSkyUIGUI["24"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
 	UnSkyUIGUI["24"]["Text"] = [[]]
 	UnSkyUIGUI["24"]["Position"] = UDim2.new(-0.00004, 0, 0.005, 0)
