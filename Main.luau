@@ -5,7 +5,7 @@ function Library:CreateWindow(Settings)
 	local Window = {}
 
 	Window.Name = Settings.Name or "Window"
-	print("v3.1 window")
+	print("v3.12 window")
 	-- ₰ ◀ UnSkyGUI2LUA ▶ ₰
 if player.PlayerGui:FindFirstChild("MainCUI") then
 	player.PlayerGui:FindFirstChild("MainCUI"):Destroy()
@@ -1193,13 +1193,19 @@ end
 				end
 			end
 
-			-- Set initial appearance
+			-- Initial state
 			UpdateToggle()
 
-			ToggleGui.Clickable.Activated:Connect(function()
-				Enabled = not Enabled
+			On.Activated:Connect(function()
+				Enabled = false
 				UpdateToggle()
 			end)
+
+			Off.Activated:Connect(function()
+				Enabled = true
+				UpdateToggle()
+			end)
+			
 
 			local Placeholder = TabContent:FindFirstChild("PlaceHolderT")
 			if Placeholder then
