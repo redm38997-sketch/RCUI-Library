@@ -5,7 +5,7 @@ function Library:CreateWindow(Settings)
 	local Window = {}
 
 	Window.Name = Settings.Name or "Window"
-	print("v2.1")
+	print("v2.1 window")
 	-- ₰ ◀ UnSkyGUI2LUA ▶ ₰
 if player.PlayerGui:FindFirstChild("MainCUI") then
 	player.PlayerGui:FindFirstChild("MainCUI"):Destroy()
@@ -697,7 +697,7 @@ end
 				UnSkyUIGUI["5"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
 				UnSkyUIGUI["5"]["TextSize"] = 14
 				UnSkyUIGUI["5"]["FontFace"] = Font.new([[rbxasset://fonts/families/FredokaOne.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-				UnSkyUIGUI["5"]["TextColor3"] = Color3.fromRGB(210, 210, 210)
+				UnSkyUIGUI["5"]["TextColor3"] = Color3.fromRGB(212, 212, 212)
 				UnSkyUIGUI["5"]["BackgroundTransparency"] = 1
 				UnSkyUIGUI["5"]["Size"] = UDim2.new(0, 103, 0, 27)
 				UnSkyUIGUI["5"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
@@ -706,7 +706,22 @@ end
 				UnSkyUIGUI["5"]["Position"] = UDim2.new(0.21229, 0, 0.43878, 0)
 				UnSkyUIGUI["5"]:SetAttribute([[_UIAID]], [[22bdf8314049]])
 
+				UnSkyUIGUI["6"] = Instance.new("ImageLabel", UnSkyUIGUI["2"])
+				UnSkyUIGUI["6"]["BorderSizePixel"] = 0
+				UnSkyUIGUI["6"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+				UnSkyUIGUI["6"]["Image"] = [[rbxassetid://87947306809158]]
+				UnSkyUIGUI["6"]["Size"] = UDim2.new(0, 16, 0, 16)
+				UnSkyUIGUI["6"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+				UnSkyUIGUI["6"]["BackgroundTransparency"] = 1
+				UnSkyUIGUI["6"]["Name"] = [[Display]]
+				UnSkyUIGUI["6"]["Position"] = UDim2.new(0.2057, 0, 0.06122, 0)
+
+
+
+
+
 			end
+
 
 
 			local TweenService = game:GetService("TweenService")
@@ -1108,6 +1123,136 @@ end
 	end
 
 	return Window
+end
+function Library:Notify(Settings)
+	print("1.0 NOTIFY")
+	local Title = Settings.Title
+	local Desc = Settings.Content
+	local image = tostring(Settings.Image)
+	
+	-- ₰ ◀ UnSkyGUI2LUA ▶ ₰
+
+	local UnSkyUIGUI = {}
+
+	UnSkyUIGUI["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"))
+	UnSkyUIGUI["1"]["Name"] = [[Notify]]
+	UnSkyUIGUI["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling
+	UnSkyUIGUI["1"]:SetAttribute([[_UIAID]], [[22bdf15693e4]])
+
+	UnSkyUIGUI["2"] = Instance.new("Frame", UnSkyUIGUI["1"])
+	UnSkyUIGUI["2"]["BorderSizePixel"] = 0
+	UnSkyUIGUI["2"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0)
+	UnSkyUIGUI["2"]["Size"] = UDim2.new(0, 179, 0, 49)
+	UnSkyUIGUI["2"]["Position"] = UDim2.new(0.01604, 0, 0.70613, 0)
+	UnSkyUIGUI["2"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+	UnSkyUIGUI["2"]["Name"] = [[Notify]]
+	UnSkyUIGUI["2"]["BackgroundTransparency"] = 0.35
+	UnSkyUIGUI["2"]:SetAttribute([[_UIAID]], [[22bdf554c63b]])
+
+	UnSkyUIGUI["3"] = Instance.new("UICorner", UnSkyUIGUI["2"])
+
+	UnSkyUIGUI["3"]:SetAttribute([[_UIAID]], [[22bdf6772687]])
+
+	UnSkyUIGUI["4"] = Instance.new("TextLabel", UnSkyUIGUI["2"])
+	UnSkyUIGUI["4"]["BorderSizePixel"] = 0
+	UnSkyUIGUI["4"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+	UnSkyUIGUI["4"]["TextSize"] = 14
+	UnSkyUIGUI["4"]["FontFace"] = Font.new([[rbxasset://fonts/families/FredokaOne.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+	UnSkyUIGUI["4"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+	UnSkyUIGUI["4"]["BackgroundTransparency"] = 1
+	UnSkyUIGUI["4"]["Size"] = UDim2.new(0, 103, 0, 27)
+	UnSkyUIGUI["4"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+	UnSkyUIGUI["4"]["Text"] = [[Title]]
+	UnSkyUIGUI["4"]["Name"] = [[Title]]
+	UnSkyUIGUI["4"]["Position"] = UDim2.new(0.21229, 0, 0, 0)
+	UnSkyUIGUI["4"]:SetAttribute([[_UIAID]], [[22bdf8195e06]])
+
+	UnSkyUIGUI["5"] = Instance.new("TextLabel", UnSkyUIGUI["2"])
+	UnSkyUIGUI["5"]["TextWrapped"] = true
+	UnSkyUIGUI["5"]["BorderSizePixel"] = 0
+	UnSkyUIGUI["5"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+	UnSkyUIGUI["5"]["TextSize"] = 14
+	UnSkyUIGUI["5"]["FontFace"] = Font.new([[rbxasset://fonts/families/FredokaOne.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+	UnSkyUIGUI["5"]["TextColor3"] = Color3.fromRGB(212, 212, 212)
+	UnSkyUIGUI["5"]["BackgroundTransparency"] = 1
+	UnSkyUIGUI["5"]["Size"] = UDim2.new(0, 103, 0, 27)
+	UnSkyUIGUI["5"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+	UnSkyUIGUI["5"]["Text"] = [[PIZZAAAA FOOD ??? NO MORE IDEAS]]
+	UnSkyUIGUI["5"]["Name"] = [[Content]]
+	UnSkyUIGUI["5"]["Position"] = UDim2.new(0.21229, 0, 0.43878, 0)
+	UnSkyUIGUI["5"]:SetAttribute([[_UIAID]], [[22bdf8314049]])
+
+	UnSkyUIGUI["6"] = Instance.new("ImageLabel", UnSkyUIGUI["2"])
+	UnSkyUIGUI["6"]["BorderSizePixel"] = 0
+	UnSkyUIGUI["6"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+	UnSkyUIGUI["6"]["Image"] = [[rbxassetid://87947306809158]]
+	UnSkyUIGUI["6"]["Size"] = UDim2.new(0, 16, 0, 16)
+	UnSkyUIGUI["6"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+	UnSkyUIGUI["6"]["BackgroundTransparency"] = 1
+	UnSkyUIGUI["6"]["Name"] = [[Display]]
+	UnSkyUIGUI["6"]["Position"] = UDim2.new(0.2057, 0, 0.06122, 0)
+
+
+
+
+
+
+
+
+
+local TweenService = game:GetService("TweenService")
+local PlayerGui = game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui")
+local Gui = PlayerGui:WaitForChild("Notify"):WaitForChild("Notify")
+
+local Duration = Settings.Duration -- How long it stays visible
+local TweenTime = 0.35 -- Slide speed
+local sound = Instance.new("Sound")
+sound.SoundId = "rbxassetid://103752619745201"
+sound.Parent = script.Parent.Parent
+local OnScreen = UDim2.new(0.016, 0, 0.706, 0)
+local OffScreen = UDim2.new(-1, 0, 0.706, 0)
+Gui.Title.Text = tostring(Title)
+Gui.Content.Text = tostring(Desc)
+Gui.Content.AutomaticSize = Enum.AutomaticSize.Y
+Gui.Content.TextWrapped = true
+Gui.Title.AutomaticSize = Enum.AutomaticSize.X
+Gui.Title.TextWrapped = false
+Gui.Visible = true
+Gui.Position = OffScreen
+Gui.Display.Image = "rbxassetid://" .. image
+	
+local function ShowNotification()
+	-- Reset position in case it was already used
+	Gui.Position = OffScreen
+
+	-- Slide in
+	local InTween = TweenService:Create(
+		Gui,
+		TweenInfo.new(TweenTime, Enum.EasingStyle.Quint, Enum.EasingDirection.Out),
+		{Position = OnScreen}
+	)
+
+	InTween:Play()
+	InTween.Completed:Wait()
+
+	-- Stay visible
+	task.wait(Duration)
+
+	-- Slide out
+	local OutTween = TweenService:Create(
+		Gui,
+		TweenInfo.new(TweenTime, Enum.EasingStyle.Quint, Enum.EasingDirection.In),
+		{Position = OffScreen}
+	)
+
+	OutTween:Play()
+end
+
+-- Call this whenever you want the notification
+sound.Volume = 0.25
+sound:Play()
+ShowNotification()
+
 end
 
 return Library
