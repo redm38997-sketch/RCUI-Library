@@ -5,7 +5,7 @@ function Library:CreateWindow(Settings)
 	local Window = {}
 
 	Window.Name = Settings.Name or "Window"
-	print("v3.1351 window")
+	print("v3.1352 window")
 	-- ₰ ◀ UnSkyGUI2LUA ▶ ₰
 if player.PlayerGui:FindFirstChild("MainCUI") then
 	player.PlayerGui:FindFirstChild("MainCUI"):Destroy()
@@ -1135,7 +1135,8 @@ end
 			local Template = self.MainFrame.PlaceHolderContent.PlaceHolderB
 			Template.Visible = false
 			Template.Active = false
-
+			
+			
 			local TemplateButton = Template:WaitForChild("PlaceHolderButton")
 			TemplateButton.Visible = false
 			TemplateButton.Active = false
@@ -1178,7 +1179,12 @@ end
 			Toggle.Name = Settings.Name
 			Toggle.Parent = TabContent
 			Toggle.Visible = true
-
+			
+			print("CLONED TOGGLE:")
+			for _, child in ipairs(Toggle:GetDescendants()) do
+				print(child:GetFullName())
+			end
+			
 			local ToggleGui = Toggle:WaitForChild("PlaceHolderToggle")
 			print(ToggleGui:GetFullName())
 
