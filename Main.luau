@@ -5,7 +5,7 @@ function Library:CreateWindow(Settings)
 	local Window = {}
 
 	Window.Name = Settings.Name or "Window"
-	print("v2.0")
+	print("v2.1")
 	-- ₰ ◀ UnSkyGUI2LUA ▶ ₰
 if player.PlayerGui:FindFirstChild("MainCUI") then
 	player.PlayerGui:FindFirstChild("MainCUI"):Destroy()
@@ -1084,7 +1084,13 @@ end
 			ButtonGui.Active = true
 			ButtonGui.Clickable.Active = true
 			ButtonGui.Title.Text = Settings.Name
+			
+			local Placeholder = TabContent:FindFirstChild("PlaceHolderB")
 
+			if Placeholder then
+				Placeholder:Destroy()
+			end
+			
 			if typeof(Settings.Callback) == "function" then
 				ButtonGui.Clickable.Activated:Connect(Settings.Callback)
 			end
