@@ -5,18 +5,19 @@ function Library:CreateWindow(Settings)
 	local Window = {}
 
 	Window.Name = Settings.Name or "Window"
-	print("NEW SCRIPT 4")
+	print("NEW SCRIPT 3")
 	-- ₰ ◀ UnSkyGUI2LUA ▶ ₰
 if player.PlayerGui:FindFirstChild("MainCUI") then
 	player.PlayerGui:FindFirstChild("MainCUI"):Destroy()
 end
+	-- ₰ ◀ UnSkyGUI2LUA ▶ ₰
+
 	local UnSkyUIGUI = {}
 
 	UnSkyUIGUI["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"))
 	UnSkyUIGUI["1"]["Name"] = [[MainCUI]]
 	UnSkyUIGUI["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling
-	UnSkyUIGUI["1"]["ResetOnSpawn"] = false
-	
+
 	UnSkyUIGUI["2"] = Instance.new("Frame", UnSkyUIGUI["1"])
 	UnSkyUIGUI["2"]["BorderSizePixel"] = 0
 	UnSkyUIGUI["2"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
@@ -190,24 +191,22 @@ end
 
 	UnSkyUIGUI["1b"] = Instance.new("ScrollingFrame", UnSkyUIGUI["2"])
 	UnSkyUIGUI["1b"]["BorderSizePixel"] = 0
-	UnSkyUIGUI["1b"]["CanvasPosition"] = Vector2.new(0, 31)
 	UnSkyUIGUI["1b"]["ElasticBehavior"] = Enum.ElasticBehavior.Never
 	UnSkyUIGUI["1b"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
 	UnSkyUIGUI["1b"]["Name"] = [[TabHolder]]
 	UnSkyUIGUI["1b"]["Selectable"] = false
-	UnSkyUIGUI["1b"]["ClipsDescendants"] = false
 	UnSkyUIGUI["1b"]["Size"] = UDim2.new(0, 176, 0, 297)
 	UnSkyUIGUI["1b"]["ScrollBarImageColor3"] = Color3.fromRGB(0, 0, 0)
 	UnSkyUIGUI["1b"]["Position"] = UDim2.new(-0.00152, 0, 0.18407, 0)
 	UnSkyUIGUI["1b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-	UnSkyUIGUI["1b"]["BackgroundTransparency"] = 1
 	UnSkyUIGUI["1b"]["ScrollBarThickness"] = 0
-	UnSkyUIGUI["1b"]["ClipsDescendants"] = true
-	
+	UnSkyUIGUI["1b"]["BackgroundTransparency"] = 1
+
 	UnSkyUIGUI["1c"] = Instance.new("UICorner", UnSkyUIGUI["1b"])
 	UnSkyUIGUI["1c"]["CornerRadius"] = UDim.new(0, 0)
 
 	UnSkyUIGUI["1d"] = Instance.new("Frame", UnSkyUIGUI["1b"])
+	UnSkyUIGUI["1d"]["Visible"] = false
 	UnSkyUIGUI["1d"]["BorderSizePixel"] = 0
 	UnSkyUIGUI["1d"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0)
 	UnSkyUIGUI["1d"]["Size"] = UDim2.new(0, 167, 0, 48)
@@ -220,7 +219,6 @@ end
 	UnSkyUIGUI["1e"]["CornerRadius"] = UDim.new(0, 12)
 
 	UnSkyUIGUI["1f"] = Instance.new("Frame", UnSkyUIGUI["1d"])
-	UnSkyUIGUI["1f"]["Visible"] = false
 	UnSkyUIGUI["1f"]["BorderSizePixel"] = 0
 	UnSkyUIGUI["1f"]["BackgroundColor3"] = Color3.fromRGB(62, 62, 62)
 	UnSkyUIGUI["1f"]["Size"] = UDim2.new(0, 166, 0, 50)
@@ -242,86 +240,154 @@ end
 	UnSkyUIGUI["20"]["Name"] = [[Title]]
 	UnSkyUIGUI["20"]["Position"] = UDim2.new(0.08982, 0, -0.015, 0)
 
-	UnSkyUIGUI["21"] = Instance.new("ImageLabel", UnSkyUIGUI["1f"])
-	UnSkyUIGUI["21"]["BorderSizePixel"] = 0
-	UnSkyUIGUI["21"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
-	UnSkyUIGUI["21"]["Image"] = [[rbxassetid://6319951708]]
-	UnSkyUIGUI["21"]["Size"] = UDim2.new(0, 44, 0, 40)
-	UnSkyUIGUI["21"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-	UnSkyUIGUI["21"]["BackgroundTransparency"] = 1
-	UnSkyUIGUI["21"]["Name"] = [[Image]]
-	UnSkyUIGUI["21"]["Position"] = UDim2.new(0.18563, 0, 0.11, 0)
-
-	UnSkyUIGUI["22"] = Instance.new("UICorner", UnSkyUIGUI["1f"])
-	UnSkyUIGUI["22"]["CornerRadius"] = UDim.new(0, 12)
-
-	UnSkyUIGUI["23"] = Instance.new("TextButton", UnSkyUIGUI["1f"])
-	UnSkyUIGUI["23"]["BorderSizePixel"] = 0
-	UnSkyUIGUI["23"]["BackgroundColor3"] = Color3.fromRGB(62, 62, 62)
-	UnSkyUIGUI["23"]["Size"] = UDim2.new(0, 166, 0, 50)
-	UnSkyUIGUI["23"]["BackgroundTransparency"] = 1
-	UnSkyUIGUI["23"]["Name"] = [[Clickable]]
-	UnSkyUIGUI["23"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-	UnSkyUIGUI["23"]["Text"] = [[]]
-	UnSkyUIGUI["23"]["Position"] = UDim2.new(-0.00004, 0, 0.005, 0)
-
-	UnSkyUIGUI["24"] = Instance.new("UICorner", UnSkyUIGUI["23"])
-	UnSkyUIGUI["24"]["CornerRadius"] = UDim.new(0, 12)
-
-	UnSkyUIGUI["25"] = Instance.new("UIListLayout", UnSkyUIGUI["1b"])
-	UnSkyUIGUI["25"]["Padding"] = UDim.new(0.03, 0)
-	UnSkyUIGUI["25"]["SortOrder"] = Enum.SortOrder.LayoutOrder
-
-	UnSkyUIGUI["26"] = Instance.new("TextLabel", UnSkyUIGUI["2"])
-	UnSkyUIGUI["26"]["TextWrapped"] = true
-	UnSkyUIGUI["26"]["BorderSizePixel"] = 0
-	UnSkyUIGUI["26"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
-	UnSkyUIGUI["26"]["TextSize"] = 35
-	UnSkyUIGUI["26"]["FontFace"] = Font.new([[rbxasset://fonts/families/FredokaOne.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-	UnSkyUIGUI["26"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
-	UnSkyUIGUI["26"]["BackgroundTransparency"] = 1
-	UnSkyUIGUI["26"]["Size"] = UDim2.new(0, 200, 0, 50)
-	UnSkyUIGUI["26"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-	UnSkyUIGUI["26"]["Text"] = [[Dig for brainrots]]
-	UnSkyUIGUI["26"]["Name"] = [[ScriptTitle]]
-	UnSkyUIGUI["26"]["Position"] = UDim2.new(0.3475, 0, -0.00275, 0)
-
-	UnSkyUIGUI["27"] = Instance.new("LocalScript", UnSkyUIGUI["26"])
+	UnSkyUIGUI["21"] = Instance.new("LocalScript", UnSkyUIGUI["20"])
 
 
-	UnSkyUIGUI["28"] = Instance.new("Frame", UnSkyUIGUI["2"])
-	UnSkyUIGUI["28"]["ZIndex"] = 0
-	UnSkyUIGUI["28"]["BorderSizePixel"] = 0
-	UnSkyUIGUI["28"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0)
-	UnSkyUIGUI["28"]["Size"] = UDim2.new(0, 660, 0, 58)
-	UnSkyUIGUI["28"]["Position"] = UDim2.new(-0.00152, 0, -0.00275, 0)
-	UnSkyUIGUI["28"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-	UnSkyUIGUI["28"]["Name"] = [[Display]]
+	UnSkyUIGUI["22"] = Instance.new("ImageLabel", UnSkyUIGUI["1f"])
+	UnSkyUIGUI["22"]["BorderSizePixel"] = 0
+	UnSkyUIGUI["22"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+	UnSkyUIGUI["22"]["Image"] = [[rbxassetid://6319951708]]
+	UnSkyUIGUI["22"]["Size"] = UDim2.new(0, 44, 0, 40)
+	UnSkyUIGUI["22"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+	UnSkyUIGUI["22"]["BackgroundTransparency"] = 1
+	UnSkyUIGUI["22"]["Name"] = [[Image]]
+	UnSkyUIGUI["22"]["Position"] = UDim2.new(0.18563, 0, 0.11, 0)
 
-	UnSkyUIGUI["29"] = Instance.new("UICorner", UnSkyUIGUI["28"])
-	UnSkyUIGUI["29"]["CornerRadius"] = UDim.new(0, 24)
-	UnSkyUIGUI["29"]["TopLeftRadius"] = UDim.new(0, 24)
-	UnSkyUIGUI["29"]["TopRightRadius"] = UDim.new(0, 24)
-	UnSkyUIGUI["29"]["BottomLeftRadius"] = UDim.new(0, 0)
-	UnSkyUIGUI["29"]["BottomRightRadius"] = UDim.new(0, 0)
+	UnSkyUIGUI["23"] = Instance.new("UICorner", UnSkyUIGUI["1f"])
+	UnSkyUIGUI["23"]["CornerRadius"] = UDim.new(0, 12)
+
+	UnSkyUIGUI["24"] = Instance.new("TextButton", UnSkyUIGUI["1f"])
+	UnSkyUIGUI["24"]["Active"] = false
+	UnSkyUIGUI["24"]["BorderSizePixel"] = 0
+	UnSkyUIGUI["24"]["BackgroundColor3"] = Color3.fromRGB(62, 62, 62)
+	UnSkyUIGUI["24"]["Size"] = UDim2.new(0, 166, 0, 50)
+	UnSkyUIGUI["24"]["BackgroundTransparency"] = 1
+	UnSkyUIGUI["24"]["Name"] = [[Clickable]]
+	UnSkyUIGUI["24"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+	UnSkyUIGUI["24"]["Text"] = [[]]
+	UnSkyUIGUI["24"]["Position"] = UDim2.new(-0.00004, 0, 0.005, 0)
+
+	UnSkyUIGUI["25"] = Instance.new("UICorner", UnSkyUIGUI["24"])
+	UnSkyUIGUI["25"]["CornerRadius"] = UDim.new(0, 12)
+
+	UnSkyUIGUI["26"] = Instance.new("UIListLayout", UnSkyUIGUI["1b"])
+	UnSkyUIGUI["26"]["Padding"] = UDim.new(0.03, 0)
+	UnSkyUIGUI["26"]["SortOrder"] = Enum.SortOrder.LayoutOrder
+
+	UnSkyUIGUI["27"] = Instance.new("TextLabel", UnSkyUIGUI["2"])
+	UnSkyUIGUI["27"]["TextWrapped"] = true
+	UnSkyUIGUI["27"]["BorderSizePixel"] = 0
+	UnSkyUIGUI["27"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+	UnSkyUIGUI["27"]["TextSize"] = 35
+	UnSkyUIGUI["27"]["FontFace"] = Font.new([[rbxasset://fonts/families/FredokaOne.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+	UnSkyUIGUI["27"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+	UnSkyUIGUI["27"]["BackgroundTransparency"] = 1
+	UnSkyUIGUI["27"]["Size"] = UDim2.new(0, 200, 0, 50)
+	UnSkyUIGUI["27"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+	UnSkyUIGUI["27"]["Text"] = [[Dig for brainrots]]
+	UnSkyUIGUI["27"]["Name"] = [[ScriptTitle]]
+	UnSkyUIGUI["27"]["Position"] = UDim2.new(0.3475, 0, -0.00275, 0)
+
+	UnSkyUIGUI["28"] = Instance.new("LocalScript", UnSkyUIGUI["27"])
+
+
+	UnSkyUIGUI["29"] = Instance.new("Frame", UnSkyUIGUI["2"])
+	UnSkyUIGUI["29"]["ZIndex"] = 0
+	UnSkyUIGUI["29"]["BorderSizePixel"] = 0
+	UnSkyUIGUI["29"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0)
+	UnSkyUIGUI["29"]["Size"] = UDim2.new(0, 660, 0, 58)
+	UnSkyUIGUI["29"]["Position"] = UDim2.new(-0.00152, 0, -0.00275, 0)
+	UnSkyUIGUI["29"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+	UnSkyUIGUI["29"]["Name"] = [[Display]]
+
+	UnSkyUIGUI["2a"] = Instance.new("UICorner", UnSkyUIGUI["29"])
+	UnSkyUIGUI["2a"]["CornerRadius"] = UDim.new(0, 24)
+	UnSkyUIGUI["2a"]["TopLeftRadius"] = UDim.new(0, 24)
+	UnSkyUIGUI["2a"]["TopRightRadius"] = UDim.new(0, 24)
+	UnSkyUIGUI["2a"]["BottomLeftRadius"] = UDim.new(0, 0)
+	UnSkyUIGUI["2a"]["BottomRightRadius"] = UDim.new(0, 0)
 	
-	UnSkyUIGUI["2a"] = Instance.new("ScrollingFrame", UnSkyUIGUI["2"])
-	UnSkyUIGUI["2a"]["BorderSizePixel"] = 0
-	UnSkyUIGUI["2a"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
-	UnSkyUIGUI["2a"]["Name"] = [[PlaceHolderContent]]
-	UnSkyUIGUI["2a"]["Size"] = UDim2.new(0, 481, 0, 307)
-	UnSkyUIGUI["2a"]["Position"] = UDim2.new(0.27011, 0, 0.15659, 0)
-	UnSkyUIGUI["2a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-	UnSkyUIGUI["2a"]["BackgroundTransparency"] = 1
-	UnSkyUIGUI["2a"]["ScrollBarThickness"] = 0
-	UnSkyUIGUI["2a"]["ClipsDescendants"] = true
-	
-	UnSkyUIGUI["2b"] = Instance.new("UICorner", UnSkyUIGUI["2a"])
-	UnSkyUIGUI["2b"]["CornerRadius"] = UDim.new(0, 0)
+	UnSkyUIGUI["2b"] = Instance.new("ScrollingFrame", UnSkyUIGUI["2"])
+	UnSkyUIGUI["2b"]["Visible"] = false
+	UnSkyUIGUI["2b"]["BorderSizePixel"] = 0
+	UnSkyUIGUI["2b"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+	UnSkyUIGUI["2b"]["Name"] = [[PlaceHolderContent]]
+	UnSkyUIGUI["2b"]["Size"] = UDim2.new(0, 481, 0, 307)
+	UnSkyUIGUI["2b"]["Position"] = UDim2.new(0.27011, 0, 0.15659, 0)
+	UnSkyUIGUI["2b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+	UnSkyUIGUI["2b"]["ScrollBarThickness"] = 0
+	UnSkyUIGUI["2b"]["BackgroundTransparency"] = 1
 
-	UnSkyUIGUI["2c"] = Instance.new("UIListLayout", UnSkyUIGUI["2a"])
-	UnSkyUIGUI["2c"]["SortOrder"] = Enum.SortOrder.LayoutOrder
-	UnSkyUIGUI["2c"]["FillDirection"] = Enum.FillDirection.Horizontal
+	UnSkyUIGUI["2c"] = Instance.new("UICorner", UnSkyUIGUI["2b"])
+	UnSkyUIGUI["2c"]["CornerRadius"] = UDim.new(0, 0)
+
+	UnSkyUIGUI["2d"] = Instance.new("UIListLayout", UnSkyUIGUI["2b"])
+	UnSkyUIGUI["2d"]["SortOrder"] = Enum.SortOrder.LayoutOrder
+	UnSkyUIGUI["2d"]["FillDirection"] = Enum.FillDirection.Horizontal
+
+	UnSkyUIGUI["2e"] = Instance.new("Frame", UnSkyUIGUI["2b"])
+	UnSkyUIGUI["2e"]["BorderSizePixel"] = 0
+	UnSkyUIGUI["2e"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0)
+	UnSkyUIGUI["2e"]["Size"] = UDim2.new(0, 485, 0, 54)
+	UnSkyUIGUI["2e"]["Position"] = UDim2.new(-0.01039, 0, 0, 0)
+	UnSkyUIGUI["2e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+	UnSkyUIGUI["2e"]["Name"] = [[PlaceHolderB]]
+	UnSkyUIGUI["2e"]["BackgroundTransparency"] = 1
+
+	UnSkyUIGUI["2f"] = Instance.new("UICorner", UnSkyUIGUI["2e"])
+	UnSkyUIGUI["2f"]["CornerRadius"] = UDim.new(0, 12)
+
+	UnSkyUIGUI["30"] = Instance.new("Frame", UnSkyUIGUI["2e"])
+	UnSkyUIGUI["30"]["BorderSizePixel"] = 0
+	UnSkyUIGUI["30"]["BackgroundColor3"] = Color3.fromRGB(62, 62, 62)
+	UnSkyUIGUI["30"]["Size"] = UDim2.new(0, 483, 0, 55)
+	UnSkyUIGUI["30"]["Position"] = UDim2.new(-0.00425, 0, -0, 0)
+	UnSkyUIGUI["30"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+	UnSkyUIGUI["30"]["Name"] = [[PlaceHolderButton]]
+
+	UnSkyUIGUI["31"] = Instance.new("TextLabel", UnSkyUIGUI["30"])
+	UnSkyUIGUI["31"]["TextWrapped"] = true
+	UnSkyUIGUI["31"]["BorderSizePixel"] = 0
+	UnSkyUIGUI["31"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+	UnSkyUIGUI["31"]["TextSize"] = 40
+	UnSkyUIGUI["31"]["FontFace"] = Font.new([[rbxasset://fonts/families/FredokaOne.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+	UnSkyUIGUI["31"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+	UnSkyUIGUI["31"]["BackgroundTransparency"] = 1
+	UnSkyUIGUI["31"]["Size"] = UDim2.new(0, 220, 0, 50)
+	UnSkyUIGUI["31"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+	UnSkyUIGUI["31"]["Text"] = [[TP TO BASE]]
+	UnSkyUIGUI["31"]["Name"] = [[Title]]
+	UnSkyUIGUI["31"]["Position"] = UDim2.new(-0.00128, 0, 0.03955, 0)
+
+	UnSkyUIGUI["32"] = Instance.new("LocalScript", UnSkyUIGUI["31"])
+
+
+	UnSkyUIGUI["33"] = Instance.new("UICorner", UnSkyUIGUI["30"])
+	UnSkyUIGUI["33"]["CornerRadius"] = UDim.new(0, 12)
+
+	UnSkyUIGUI["34"] = Instance.new("TextButton", UnSkyUIGUI["30"])
+	UnSkyUIGUI["34"]["Active"] = false
+	UnSkyUIGUI["34"]["BorderSizePixel"] = 0
+	UnSkyUIGUI["34"]["BackgroundColor3"] = Color3.fromRGB(62, 62, 62)
+	UnSkyUIGUI["34"]["Size"] = UDim2.new(0, 479, 0, 55)
+	UnSkyUIGUI["34"]["BackgroundTransparency"] = 1
+	UnSkyUIGUI["34"]["Name"] = [[Clickable]]
+	UnSkyUIGUI["34"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+	UnSkyUIGUI["34"]["Text"] = [[]]
+	UnSkyUIGUI["34"]["Position"] = UDim2.new(-0.00004, 0, 0.00509, 0)
+
+	UnSkyUIGUI["35"] = Instance.new("UICorner", UnSkyUIGUI["34"])
+	UnSkyUIGUI["35"]["CornerRadius"] = UDim.new(0, 12)
+
+	UnSkyUIGUI["36"] = Instance.new("ImageLabel", UnSkyUIGUI["30"])
+	UnSkyUIGUI["36"]["BorderSizePixel"] = 0
+	UnSkyUIGUI["36"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+	UnSkyUIGUI["36"]["Image"] = [[rbxassetid://87737466249491]]
+	UnSkyUIGUI["36"]["Size"] = UDim2.new(0, 59, 0, 44)
+	UnSkyUIGUI["36"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+	UnSkyUIGUI["36"]["BackgroundTransparency"] = 1
+	UnSkyUIGUI["36"]["Name"] = [[Display]]
+	UnSkyUIGUI["36"]["Position"] = UDim2.new(0.80538, 0, 0.09091, 0)
 
 	local G2L_REQUIRE = require;
 	local G2L_MODULES = {};
@@ -488,7 +554,7 @@ end
 	local function SCRIPT_b()
 		local script = UnSkyUIGUI["b"]
 		local player = game.Players.LocalPlayer
-		local MainGui = game.Players.LocalPlayer.PlayerGui.MainCUI
+		local MainGui = script.Parent.Parent.Parent
 		local MainFrame = MainGui.Main
 		local Env
 
@@ -651,19 +717,18 @@ end
 			local TweenTime = 0.35 -- Slide speed
 			local sound = Instance.new("Sound")
 			sound.SoundId = "rbxassetid://103752619745201"
-			sound.Parent = Gui
+			sound.Parent = script.Parent.Parent
 			local OnScreen = UDim2.new(0.016, 0, 0.706, 0)
 			local OffScreen = UDim2.new(-1, 0, 0.706, 0)
 			Gui.Title.Text = "Reminder"
-			Gui.Content.Text = "Use Left Control To Open The GUI"
+			Gui.Content.Text = "Use Left Shift To Open The GUI"
 			Gui.Content.AutomaticSize = Enum.AutomaticSize.Y
 			Gui.Content.TextWrapped = true
 			Gui.Title.AutomaticSize = Enum.AutomaticSize.X
 			Gui.Title.TextWrapped = false
 			Gui.Visible = true
 			Gui.Position = OffScreen
-			
-		
+
 			local function ShowNotification()
 				-- Reset position in case it was already used
 				Gui.Position = OffScreen
@@ -702,9 +767,9 @@ end
 		UserInputService.InputBegan:Connect(function(input, gameProcessed)
 			if gameProcessed then return end -- ignores typing in chat, UI, etc.
 
-			if input.KeyCode == Enum.KeyCode.LeftControl and MainFrame.Visible == false then
+			if input.KeyCode == Enum.KeyCode.LeftShift and MainFrame.Visible == false then
 				SlideOn(MainFrame, UDim2.new(0.5, 0, 0.5, 0))
-			elseif input.KeyCode == Enum.KeyCode.LeftControl and MainFrame.Visible == true then
+			elseif input.KeyCode == Enum.KeyCode.LeftShift and MainFrame.Visible == true then
 				SlideOff(MainFrame)
 			end
 		end)
@@ -827,7 +892,6 @@ end
 		)
 
 		local User = script.Parent.Parent.User
-		print("Printed After User")
 		local MiniUser = script.Parent.Parent.MiniUser
 
 		local UserAvatar = User.Avatar
@@ -912,21 +976,28 @@ end
 		end)
 	end
 	task.spawn(SCRIPT_d)
-	local MAINCUI = player.PlayerGui:FindFirstChild("MainCUI")
-	local function SCRIPT_27()
-		local script = UnSkyUIGUI["27"]
-		local RS = game:GetService("RunService")
-		
-		print(MAINCUI)
-		print(MAINCUI.Name)
-		print(MAINCUI.ClassName)
-		print(MAINCUI:GetFullName())
-
-
-		
-			MAINCUI:WaitForChild("Main").ScriptTitle.AutomaticSize = Enum.AutomaticSize.X
+	local function SCRIPT_21()
+		local script = UnSkyUIGUI["21"]
+		script.Parent.AutomaticSize = Enum.AutomaticSize.X
 	end
-	task.spawn(SCRIPT_27)
+	task.spawn(SCRIPT_21)
+	local function SCRIPT_28()
+		local script = UnSkyUIGUI["28"]
+		local RS = game:GetService("RunService")
+
+
+
+		RS.Heartbeat:Connect(function()
+			script.Parent.AutomaticSize = Enum.AutomaticSize.X
+		end)
+	end
+	task.spawn(SCRIPT_28)
+	local function SCRIPT_32()
+		local script = UnSkyUIGUI["32"]
+		script.Parent.AutomaticSize = Enum.AutomaticSize.X
+	end
+	task.spawn(SCRIPT_32)
+	local MAINCUI = player.PlayerGui:FindFirstChild("MainCUI")	
 
 	local mainframe = MAINCUI:WaitForChild("Main")
 
@@ -944,7 +1015,8 @@ end
 		TabCount += 1
 		Tab.ID = TabCount
 		Tab.Name = Settings.Name
-
+		Tab.MainFrame = mainframe
+		
 		local Tabf = self.TabTemplate:Clone()
 
 		Tabf.Name = TabCount .. "Tab"
@@ -971,7 +1043,7 @@ end
 		Content.Visible = true
 
 		Tab.Content = Content
-
+	
 		-- Hide other contents and show this one
 		local function SelectTab()
 			for _, v in ipairs(Content.Parent:GetChildren()) do
@@ -986,9 +1058,18 @@ end
 		clickable.Activated:Connect(SelectTab)
 		
 		function Tab:CreateButton(Settings)
-			
-		end
+			local TabID = self.ID
 
+			-- The actual tab button GUI
+			local TabGui = self.MainFrame.TabHolder:FindFirstChild(TabID .. "Tab")
+
+			-- The corresponding content
+			local TabContent = self.MainFrame:FindFirstChild(TabID .. "TabContent")
+
+			print(TabGui)
+			print(TabContent)
+		end
+		
 		function Tab:CreateToggle(Settings)
 			-- Create toggle UI here
 			-- Store true/false state
