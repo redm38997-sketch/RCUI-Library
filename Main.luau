@@ -5,7 +5,7 @@ function Library:CreateWindow(Settings)
 	local Window = {}
 
 	Window.Name = Settings.Name or "Window"
-	print("NEW SCRIPT 6")
+	print("v2.0")
 	-- ₰ ◀ UnSkyGUI2LUA ▶ ₰
 if player.PlayerGui:FindFirstChild("MainCUI") then
 	player.PlayerGui:FindFirstChild("MainCUI"):Destroy()
@@ -1062,26 +1062,34 @@ end
 
 			local TabGui = self.MainFrame.TabHolder:FindFirstChild(TabID .. "Tab")
 			local TabContent = self.MainFrame:FindFirstChild(TabID .. "TabContent")
-			local notbutton = self.MainFrame.PlaceHolderContent.PlaceHolderB
-			notbutton.Visible = false
-			notbutton.Active = false
-			local notbutton2 = self.MainFrame.PlaceHolderContent.PlaceHolderB:FindFirstChild("PlaceHolderButton")
-			notbutton2.Visible = false
-			notbutton2.Active = false
-			notbutton2.Clickable.Active = false
-			local Button = self.MainFrame.PlaceHolderContent.PlaceHolderB:Clone()
+
+			-- Hide template
+			local Template = self.MainFrame.PlaceHolderContent.PlaceHolderB
+			Template.Visible = false
+			Template.Active = false
+
+			local TemplateButton = Template:WaitForChild("PlaceHolderButton")
+			TemplateButton.Visible = false
+			TemplateButton.Active = false
+			TemplateButton.Clickable.Active = false
+
+			-- Clone template
+			local Button = Template:Clone()
 			Button.Name = Settings.Name
 			Button.Parent = TabContent
 			Button.Visible = true
 
-			Button.PlaceHolderButton.Name = Settings.Name
-			Button.PlaceHolderButton.Visible = true
-			Button.PlaceHolderButton.Active = true
-			Button.PlaceHolderButton.Title.Text = Settings.Name
-			Button.PlaceHolderButton.Clickable.Active = true
+			local ButtonGui = Button:WaitForChild("PlaceHolderButton")
+			ButtonGui.Visible = true
+			ButtonGui.Active = true
+			ButtonGui.Clickable.Active = true
+			ButtonGui.Title.Text = Settings.Name
+
 			if typeof(Settings.Callback) == "function" then
-				Button.PlaceHolderButton.Clickable.Activated:Connect(Settings.Callback)
+				ButtonGui.Clickable.Activated:Connect(Settings.Callback)
 			end
+
+			return Button
 		end
 		
 		function Tab:CreateToggle(Settings)
