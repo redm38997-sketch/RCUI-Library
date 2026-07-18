@@ -5,7 +5,7 @@ function Library:CreateWindow(Settings)
 	local Window = {}
 
 	Window.Name = Settings.Name or "Window"
-	print("NEW SCRIPT 5")
+	print("NEW SCRIPT 3")
 	-- ₰ ◀ UnSkyGUI2LUA ▶ ₰
 if player.PlayerGui:FindFirstChild("MainCUI") then
 	player.PlayerGui:FindFirstChild("MainCUI"):Destroy()
@@ -1060,14 +1060,28 @@ end
 		function Tab:CreateButton(Settings)
 			local TabID = self.ID
 
-			-- The actual tab button GUI
 			local TabGui = self.MainFrame.TabHolder:FindFirstChild(TabID .. "Tab")
-
-			-- The corresponding content
 			local TabContent = self.MainFrame:FindFirstChild(TabID .. "TabContent")
+			local notbutton = self.MainFrame.PlaceHolderContent.PlaceHolderB
+			notbutton.Visible = false
+			notbutton.Active = false
+			local notbutton2 = self.MainFrame.PlaceHolderContent.PlaceHolderB:FindFirstChild("PlaceHolderButton")
+			notbutton2.Visible = false
+			notbutton2.Active = false
+			notbutton2.Clickable.Active = false
+			local Button = self.MainFrame.PlaceHolderContent.PlaceHolderB:Clone()
+			Button.Name = Settings.Name
+			Button.Parent = TabContent
+			Button.Visible = true
 
-			print(TabGui)
-			print(TabContent)
+			Button.PlaceHolderButton.Name = Settings.Name
+			Button.PlaceHolderButton.Visible = true
+			Button.PlaceHolderButton.Active = true
+			Button.PlaceHolderButton.Title.Text = Settings.Name
+			Button.PlaceHolderButton.Clickable.Active = true
+			if typeof(Settings.Callback) == "function" then
+				Button.PlaceHolderButton.Clickable.Activated:Connect(Settings.Callback)
+			end
 		end
 		
 		function Tab:CreateToggle(Settings)
