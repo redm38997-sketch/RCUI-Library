@@ -5,7 +5,7 @@ function Library:CreateWindow(Settings)
 	local Window = {}
 
 	Window.Name = Settings.Name or "Window"
-	print("v3.12 window")
+	print("v3.13 window")
 	-- ₰ ◀ UnSkyGUI2LUA ▶ ₰
 if player.PlayerGui:FindFirstChild("MainCUI") then
 	player.PlayerGui:FindFirstChild("MainCUI"):Destroy()
@@ -1102,7 +1102,14 @@ end
 		Content.Name = TabCount .. "TabContent"
 		Content.Parent = ContentTemplate.Parent
 		Content.Visible = true
-
+		local prrrr = Content:FindFirstChild("PlaceHolderB")
+		local prrrr2 = Content:FindFirstChild("PlaceHolderT")
+		if prrrr then
+			prrrr:Destroy()
+		end
+		if prrrr2 then
+			prrrr2:Destroy()
+		end
 		Tab.Content = Content
 	
 		-- Hide other contents and show this one
@@ -1175,12 +1182,12 @@ end
 			local ToggleGui = Toggle:WaitForChild("PlaceHolderToggle")
 			ToggleGui.Visible = true
 			ToggleGui.Active = true
-			ToggleGui.Clickable.Active = true
 			ToggleGui.Title.Text = Settings.Name
 
 			local On = ToggleGui.On
 			local Off = ToggleGui.Off
-
+			On.Active = true
+			Off.Active = true
 			-- Initial state
 			local Enabled = Settings.Default or false
 
