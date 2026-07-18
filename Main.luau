@@ -5,7 +5,7 @@ function Library:CreateWindow(Settings)
 	local Window = {}
 
 	Window.Name = Settings.Name or "Window"
-	print("v3.1352 window")
+	print("v3.1353 window")
 	-- ₰ ◀ UnSkyGUI2LUA ▶ ₰
 if player.PlayerGui:FindFirstChild("MainCUI") then
 	player.PlayerGui:FindFirstChild("MainCUI"):Destroy()
@@ -425,6 +425,36 @@ end
 
 	UnSkyUIGUI["3b"] = Instance.new("LocalScript", UnSkyUIGUI["3a"])
 
+
+	UnSkyUIGUI["3c"] = Instance.new("UICorner", UnSkyUIGUI["39"])
+	UnSkyUIGUI["3c"]["CornerRadius"] = UDim.new(0, 12)
+
+	UnSkyUIGUI["3d"] = Instance.new("ImageButton", UnSkyUIGUI["39"])
+	UnSkyUIGUI["3d"]["Active"] = false
+	UnSkyUIGUI["3d"]["BorderSizePixel"] = 0
+	UnSkyUIGUI["3d"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+	UnSkyUIGUI["3d"]["Image"] = [[rbxassetid://79950019637830]]
+	UnSkyUIGUI["3d"]["Size"] = UDim2.new(0, 85, 0, 52)
+	UnSkyUIGUI["3d"]["BackgroundTransparency"] = 1
+	UnSkyUIGUI["3d"]["Name"] = [[Off]]
+	UnSkyUIGUI["3d"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+	UnSkyUIGUI["3d"]["Position"] = UDim2.new(0.77916, 0, 0.03954, 0)
+
+	UnSkyUIGUI["3e"] = Instance.new("UICorner", UnSkyUIGUI["3d"])
+
+
+	UnSkyUIGUI["3f"] = Instance.new("ImageButton", UnSkyUIGUI["39"])
+	UnSkyUIGUI["3f"]["Active"] = false
+	UnSkyUIGUI["3f"]["BorderSizePixel"] = 0
+	UnSkyUIGUI["3f"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+	UnSkyUIGUI["3f"]["Image"] = [[rbxassetid://77047241170725]]
+	UnSkyUIGUI["3f"]["Size"] = UDim2.new(0, 85, 0, 52)
+	UnSkyUIGUI["3f"]["BackgroundTransparency"] = 1
+	UnSkyUIGUI["3f"]["Name"] = [[On]]
+	UnSkyUIGUI["3f"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+	UnSkyUIGUI["3f"]["Position"] = UDim2.new(0.77916, 0, 0.03954, 0)
+
+	UnSkyUIGUI["40"] = Instance.new("UICorner", UnSkyUIGUI["3f"])
 	
 	local G2L_REQUIRE = require;
 	local G2L_MODULES = {};
