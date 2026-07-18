@@ -1125,7 +1125,7 @@ end
 	return Window
 end
 function Library:Notify(Settings)
-	print("1.0 NOTIFY")
+	print("1.1 NOTIFY")
 	local Title = Settings.Title
 	local Desc = Settings.Content
 	local image = tostring(Settings.Image)
@@ -1208,7 +1208,7 @@ local Duration = Settings.Duration -- How long it stays visible
 local TweenTime = 0.35 -- Slide speed
 local sound = Instance.new("Sound")
 sound.SoundId = "rbxassetid://103752619745201"
-sound.Parent = script.Parent.Parent
+sound.Parent = Gui
 local OnScreen = UDim2.new(0.016, 0, 0.706, 0)
 local OffScreen = UDim2.new(-1, 0, 0.706, 0)
 Gui.Title.Text = tostring(Title)
