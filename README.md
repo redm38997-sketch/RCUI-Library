@@ -1,8 +1,12 @@
 # RCUI-Library
 ## Getting Started
 ### Loading The Library
-`git status`
-
+`local CUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/redm38997-sketch/RCUI-Library/refs/heads/main/Loader.luau"))()`
+### Adding A Window
+`local Window = CUI:CreateWindow({
+	Name = "My Hub"
+})
+`
 
 
 
