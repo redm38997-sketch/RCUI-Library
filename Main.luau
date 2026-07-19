@@ -5,7 +5,7 @@ function Library:CreateWindow(Settings)
 	local Window = {}
 
 	Window.Name = Settings.Name or "Window"
-	print("v3.2.4 TEST window")
+	print("v3.2.5 TEST window")
 	-- ₰ ◀ UnSkyGUI2LUA ▶ ₰
 if player.PlayerGui:FindFirstChild("MainCUI") then
 	player.PlayerGui:FindFirstChild("MainCUI"):Destroy()
@@ -1199,7 +1199,7 @@ end
 
 		Content.Name = TabCount .. "TabContent"
 		Content.Parent = ContentTemplate.Parent
-		Content.Visible = true
+		Content.Visible = false
 		local prrrr = Content:FindFirstChild("PlaceHolderB")
 		local prrrr2 = Content:FindFirstChild("PlaceHolderT")
 		if prrrr then
@@ -1222,6 +1222,11 @@ end
 		end
 
 		clickable.Activated:Connect(SelectTab)
+		
+		if TabCount == 1 then
+			SelectTab()
+		end
+		
 		
 		function Tab:CreateButton(Settings)
 			local TabID = self.ID
