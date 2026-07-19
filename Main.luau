@@ -5,7 +5,7 @@ function Library:CreateWindow(Settings)
 	local Window = {}
 
 	Window.Name = Settings.Name or "Window"
-	print("v3.2.5 TEST window")
+	print("v3.2.6 TEST window")
 	-- ₰ ◀ UnSkyGUI2LUA ▶ ₰
 if player.PlayerGui:FindFirstChild("MainCUI") then
 	player.PlayerGui:FindFirstChild("MainCUI"):Destroy()
@@ -18,7 +18,7 @@ end
 	UnSkyUIGUI["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"))
 	UnSkyUIGUI["1"]["Name"] = [[MainCUI]]
 	UnSkyUIGUI["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling
-
+	UnSkyUIGUI["1"]["ResetOnSpawn"] = false
 	UnSkyUIGUI["2"] = Instance.new("Frame", UnSkyUIGUI["1"])
 	UnSkyUIGUI["2"]["BorderSizePixel"] = 0
 	UnSkyUIGUI["2"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
@@ -1122,35 +1122,49 @@ end
 		end)
 	end
 	task.spawn(SCRIPT_d)
+
 	local function SCRIPT_21()
 		local script = UnSkyUIGUI["21"]
-		script.Parent.AutomaticSize = Enum.AutomaticSize.X
+		local scriptt = UnSkyUIGUI["21"]
+		local textlabel = scriptt.Parent
+
+		textlabel.AutomaticSize = Enum.AutomaticSize.X
 	end
 	task.spawn(SCRIPT_21)
+
 	local function SCRIPT_28()
 		local script = UnSkyUIGUI["28"]
-		local RS = game:GetService("RunService")
+		local scriptt = UnSkyUIGUI["28"]
+		local textlabel = scriptt.Parent
 
-
-
-		RS.Heartbeat:Connect(function()
-			script.Parent.AutomaticSize = Enum.AutomaticSize.X
-		end)
+		textlabel.AutomaticSize = Enum.AutomaticSize.X
 	end
 	task.spawn(SCRIPT_28)
+
 	local function SCRIPT_32()
 		local script = UnSkyUIGUI["32"]
-		script.Parent.AutomaticSize = Enum.AutomaticSize.X
+		local scriptt = UnSkyUIGUI["32"]
+		local textlabel = scriptt.Parent
+
+		textlabel.AutomaticSize = Enum.AutomaticSize.X
 	end
 	task.spawn(SCRIPT_32)
+
 	local function SCRIPT_3b()
 		local script = UnSkyUIGUI["3b"]
-		script.Parent.AutomaticSize = Enum.AutomaticSize.X
+		local scriptt = UnSkyUIGUI["3b"]
+		local textlabel = scriptt.Parent
+
+		textlabel.AutomaticSize = Enum.AutomaticSize.X
 	end
 	task.spawn(SCRIPT_3b)
+
 	local function SCRIPT_45()
 		local script = UnSkyUIGUI["45"]
-		script.Parent.AutomaticSize = Enum.AutomaticSize.X
+		local scriptt = UnSkyUIGUI["45"]
+		local textlabel = scriptt.Parent
+
+		textlabel.AutomaticSize = Enum.AutomaticSize.X
 	end
 	task.spawn(SCRIPT_45)
 
