@@ -1407,7 +1407,14 @@ end
 	return Window
 end
 function Library:Notify(Settings)
-	print("1.2 NOTIFY")
+	print("1.25 NOTIFY")
+local PlayerGui = game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui")
+
+local OldNotify = PlayerGui:FindFirstChild("Notify")
+if OldNotify then
+	OldNotify:Destroy()
+end
+
 	local Title = Settings.Title
 	local Desc = Settings.Content
 	local image = tostring(Settings.Image)
